@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CoDrive</title>
+    <script
+      src="https://kit.fontawesome.com/89684e6df2.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header>
+      <section class="header_left">
+        <img
+          src="https://i.ibb.co/FW893Gg/image-2024-04-17-141036000.png"
+          alt="Logo CoDrive"
+        />
+        <h1 class="Titre"><a href="/">CoDrive</a></h1>
+      </section>
+
+      <section class="header_center">
+        <ul>
+          <li><a href="/annonce"> Créer une annonce </a></li>
+          <li><a href="/recompenses"> Récompenses </a></li>
+          <li><a href="/chatbot"> ChatBot </a></li>
+        </ul>
+      </section>
+
+      <section class="header_right">
+        <ul>
+          <li>
+            <a href="/Login">
+              <i class="fa-solid fa-right-to-bracket" alt="Login"></i>
+            </a>
+          </li>
+          <li>
+            <a href="/Register">
+              <i class="fa-solid fa-user-plus" alt="Register"></i>
+            </a>
+          </li>
+        </ul>
+      </section>
+    </header>
+
+    <section class="annonce_card">
+      <div id="annonces-container"></div>
+    </section>
+  </body>
+
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+    /* START HEADER & BODY*/
+    body {
+      margin: 0;
+      background-color: whitesmoke;
+      font-family: "Montserrat", sans-serif;
+    }
+
+    header {
+      padding: 5px 0 5px 5px;
+      display: flex;
+      justify-content: space-between;
+      background-color: whitesmoke !important;
+    }
+
+    .header_left {
+      display: flex;
+      align-items: center;
+      width: 33.33%;
+    }
+
+    .header_left img {
+      width: 15%;
+      margin-right: 2px;
+    }
+
+    a {
+      text-decoration: none;
+      color: #27921c;
+      font-size: 18px;
+    }
+
+    .header_center {
+      width: 33.33%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .header_center ul {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+    }
+
+    .header_right {
+      width: 33.33%;
+      display: flex;
+      align-items: center;
+      justify-content: end;
+    }
+
+    .header_right i {
+      font-size: 23px;
+    }
+
+    .header_right ul {
+      display: flex;
+      width: 100%;
+      justify-content: end;
+    }
+    .header_right li {
+      margin-right: 30px;
+      width: 6%;
+    }
+
+    .header_right li img {
+      width: 70%;
+    }
+
+    .header_right img {
+      width: 10%;
+      margin-right: 10px;
+    }
+
+    ul {
+      list-style-type: none;
+    }
+    /* END HEADER & BODY*/
+
+    /* START MAIN */
+    .main_container p {
+      text-align: center;
+      font-size: 18px;
+    }
+
+    .main_container h1 {
+      text-align: center;
+      margin-top: 50px;
+      font-size: 30px;
+    }
+
+    .main_container h2 {
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    .lien {
+      color: #34c924;
+    }
+
+    .placeholder {
+      text-align: center;
+    }
+
+    .annonce {
+      margin-top: 100px;
+      text-align: center;
+      background-color: #ffffff;
+      border-radius: 15px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      width: 25%;
+    }
+
+    .annonce:hover {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transform: scale(1.05);
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+    }
+
+    #annonces-container {
+      width: 100%;
+      display: flex;
+      justify-content: space-evenly;
+    }
+
+    .card-button {
+      color: white;
+      background-color: #27921c;
+      border-radius: 10px;
+      padding: 6px;
+    }
+    /* END MAIN */
+  </style>
+</html>

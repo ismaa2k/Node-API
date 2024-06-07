@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CoDrive</title>
+    <script
+      src="https://kit.fontawesome.com/89684e6df2.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+      /* START HEADER & BODY*/
+      body {
+        height: 100vh;
+        width: 100%;
+        background-color: whitesmoke;
+        font-family: "Montserrat", sans-serif;
+        margin: auto;
+      }
+
+      main {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+
+      header {
+        padding: 5px 0 5px 5px;
+        display: flex;
+        justify-content: space-between;
+        background-color: whitesmoke !important;
+      }
+
+      .header_left {
+        display: flex;
+        align-items: center;
+        width: 33.33%;
+      }
+
+      .header_left img {
+        width: 15%;
+        margin-right: 2px;
+      }
+
+      a {
+        text-decoration: none;
+        color: #27921c;
+        font-size: 18px;
+      }
+
+      .header_center {
+        width: 33.33%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .header_center ul {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      .header_right {
+        width: 33.33%;
+        display: flex;
+        align-items: center;
+        justify-content: end;
+      }
+
+      .header_right i {
+        font-size: 23px;
+      }
+
+      .header_right ul {
+        display: flex;
+        width: 100%;
+        justify-content: end;
+      }
+      .header_right li {
+        margin-right: 30px;
+        width: 6%;
+      }
+
+      .header_right li img {
+        width: 70%;
+      }
+
+      .header_right img {
+        width: 10%;
+        margin-right: 10px;
+      }
+
+      ul {
+        list-style-type: none;
+      }
+      /* END HEADER & BODY*/
+
+      /* START BODY */
+      .middle_container {
+        margin-top: 5%;
+        box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.12);
+        background-color: white;
+        width: 30%;
+        height: 80%;
+        text-align: center;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        border-radius: 20px;
+      }
+
+      .middle_container h1 {
+        color: var(--neutral-1000, #1c1f25);
+        text-align: center;
+        font-family: "Montserrat", sans-serif;
+        font-size: 40px;
+        font-style: normal;
+        font-weight: 700;
+        text-overflow: clip;
+        overflow: hidden;
+      }
+
+      .middle_container input {
+        width: 50%;
+        height: 30px;
+        display: flex;
+        margin: 15px auto;
+        text-align: center;
+        border-radius: 5px;
+        border: 1.5px solid #000;
+      }
+
+      .middle_container button {
+        width: 30%;
+        height: 50px;
+        border-radius: 17.914px;
+        background: var(--primary-600, #387ff5);
+        color: var(--dark-overlay-text-100, #fff);
+        font-family: "Montserrat", sans-serif;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 122%;
+        margin: 18px auto;
+        border: 0px solid white;
+        overflow: hidden;
+        text-overflow: clip;
+      }
+
+      .middle_container label {
+        color: var(--neutral-1000, #1c1f25);
+        font-family: "Montserrat", sans-serif;
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 400;
+      }
+
+      .middle_container p {
+        color: rgba(0, 0, 0, 0.5);
+        text-align: center;
+        font-family: "Montserrat", sans-serif;
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 116%;
+      }
+
+      .middle_container a {
+        color: #0066c3;
+        font-family: "Montserrat", sans-serif;
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 116%;
+      }
+      /* END BODY */
+    </style>
+  </head>
+  <body>
+    <header>
+      <section class="header_left">
+        <img
+          src="https://i.ibb.co/FW893Gg/image-2024-04-17-141036000.png"
+          alt="Logo CoDrive"
+        />
+        <h1 class="Titre"><a href="/">CoDrive</a></h1>
+      </section>
+
+      <section class="header_center">
+        <ul>
+          <li><a href="/annonce"> Créer une annonce </a></li>
+          <li><a href="/recompenses"> Récompenses </a></li>
+          <li><a href="/chatbot"> ChatBot </a></li>
+        </ul>
+      </section>
+
+      <section class="header_right">
+        <ul>
+          <li>
+            <a href="/Login">
+              <i class="fa-solid fa-right-to-bracket" alt="Login"></i>
+            </a>
+          </li>
+          <li>
+            <a href="/Register">
+              <i class="fa-solid fa-user-plus" alt="Register"></i>
+            </a>
+          </li>
+        </ul>
+      </section>
+    </header>
+    <main>
+      <div class="middle_container">
+        <h1>Inscription</h1>
+
+        <form
+          action="http://localhost:3001/api/users/register"
+          method="post"
+          id="register_form"
+        >
+          <label for="nom">Nom :</label>
+          <input type="text" name="nom" id="nom" required />
+
+          <label for="prenom">Prénom :</label>
+          <input type="text" name="prenom" id="prenom" required />
+
+          <label for="age">Age :</label>
+          <input type="number" name="age" id="age" required />
+
+          <label for="email">Email :</label>
+          <input type="email" name="email" id="email" required />
+
+          <label for="password">Mot de passe :</label>
+          <input type="password" name="password" id="password" required />
+
+          <button type="submit" value="S'inscrire">S'inscrire</button>
+        </form>
+      </div>
+    </main>
+  </body>
+  <script></script>
+</html>

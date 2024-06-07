@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CoDrive</title>
+    <script
+      src="https://kit.fontawesome.com/89684e6df2.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+      /* START HEADER & BODY*/
+      body {
+        margin: 0;
+        background-color: whitesmoke;
+        font-family: "Montserrat", sans-serif;
+      }
+
+      header {
+        padding: 5px 0 5px 5px;
+        display: flex;
+        justify-content: space-between;
+        background-color: whitesmoke !important;
+      }
+
+      .header_left {
+        display: flex;
+        align-items: center;
+        width: 33.33%;
+      }
+
+      .header_left img {
+        width: 15%;
+        margin-right: 2px;
+      }
+
+      a {
+        text-decoration: none;
+        color: #27921c;
+        font-size: 18px;
+      }
+
+      .header_center {
+        width: 33.33%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .header_center ul {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      .header_right {
+        width: 33.33%;
+        display: flex;
+        align-items: center;
+        justify-content: end;
+      }
+
+      .header_right i {
+        font-size: 23px;
+      }
+
+      .header_right ul {
+        display: flex;
+        width: 100%;
+        justify-content: end;
+      }
+      .header_right li {
+        margin-right: 30px;
+        width: 6%;
+      }
+
+      .header_right li img {
+        width: 70%;
+      }
+
+      .header_right img {
+        width: 10%;
+        margin-right: 10px;
+      }
+
+      ul {
+        list-style-type: none;
+      }
+      /* END HEADER & BODY*/
+
+      /* START MAIN */
+      .main_container p {
+        text-align: center;
+        font-size: 18px;
+      }
+
+      .main_container h1 {
+        text-align: center;
+        margin-top: 100px;
+        font-size: 30px;
+      }
+
+      .main_container h2 {
+        text-align: center;
+        margin-top: 150px;
+      }
+
+      .lien {
+        color: #34c924;
+      }
+
+      .placeholder {
+        text-align: center;
+      }
+
+      .annonce {
+        margin-top: 50px;
+        text-align: center;
+        background-color: #ffffff;
+        border-radius: 15px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        width: 25%;
+      }
+
+      .annonce:hover {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transform: scale(1.05);
+        transition: box-shadow 0.3s ease, transform 0.3s ease;
+      }
+
+      #annonces-container {
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+      }
+
+      .card-button {
+        color: white;
+        background-color: #27921c;
+        border-radius: 10px;
+        padding: 6px;
+      }
+
+      footer {
+        margin-top: 150px;
+        color: #6c757d;
+        padding: 20px;
+        text-align: center;
+        font-size: 14px;
+        border-top: 1px solid #dee2e6;
+      }
+
+      .footer-link {
+        color: #007bff;
+        text-decoration: none;
+        margin-right: 15px;
+      }
+
+      .social-link {
+        color: #27921c;
+        text-decoration: none;
+        margin-right: 15px;
+      }
+
+      .social-link {
+        margin-left: 10px;
+      }
+
+      .footer-link:last-child,
+      .social-link:last-child {
+        margin-right: 0;
+      }
+      /* END MAIN */
+    </style>
+  </head>
+  <body>
+    <header>
+      <section class="header_left">
+        <img
+          src="https://i.ibb.co/FW893Gg/image-2024-04-17-141036000.png"
+          alt="Logo CoDrive"
+        />
+        <h1 class="Titre"><a href="/">CoDrive</a></h1>
+      </section>
+
+      <section class="header_center">
+        <ul>
+          <li><a href="/annonce"> Créer une annonce </a></li>
+          <li><a href="/recompenses"> Récompenses </a></li>
+          <li><a href="/chatbot"> ChatBot </a></li>
+        </ul>
+      </section>
+
+      <section class="header_right">
+        <ul>
+          <li>
+            <a href="/Login">
+              <i class="fa-solid fa-right-to-bracket" alt="Login"></i>
+            </a>
+          </li>
+          <li>
+            <a href="/Register">
+              <i class="fa-solid fa-user-plus" alt="Register"></i>
+            </a>
+          </li>
+        </ul>
+      </section>
+    </header>
+
+    <section class="main_container">
+      <h1>Bienvenue chez CoDrive</h1>
+
+      <p>
+        CoDrive est votre solution de choix pour un co-voiturage éco responsable
+        ! Pour encourager nos clients à utiliser nos services, nous avons mis en
+        oeuvre un <a class="lien" href="/recompenses">système de récompenses.</a
+        ><br />
+        Si jamais vous avez une quelconque question en rapport avec le site,
+        vous pouvez la poser à notre
+        <a href="/Chatbot" class="lien">ChatBot</a> disponible en continue pour
+        vous répondre.
+      </p>
+      <h2>Liste des annonces récentes :</h2>
+    </section>
+
+    <section class="annonce_card">
+      <div id="annonces-container">
+        <script type="module">
+          function loadAndDisplayAnnonces() {
+            fetch("/api/annonces")
+              .then((response) => {
+                if (!response.ok) {
+                  throw new Error(
+                    "Network response was not ok " + response.statusText
+                  );
+                }
+                return response.json();
+              })
+              .then((annonces) => {
+                const annoncesContainer =
+                  document.getElementById("annonces-container");
+                annoncesContainer.innerHTML = "";
+                annonces.forEach((annonce) => {
+                  let annonceHtml = `
+                    <div class="annonce" data-depart="${annonce.villed}" data-arrivee="${annonce.villea}">
+                      <h3> Départ : <span>${annonce.villed}</span></h3>
+                      <h3>Arrivée : <span>${annonce.villea}</span></h3>
+                      <p>Heure de départ: ${annonce.depart}</p>
+                      <p>Prix: ${annonce.prix}€</p>
+                      <p>Places disponibles: ${annonce.place}</p>
+                      <p> ---------- </p>
+                      <p>Km: <span id='km'></span></p>
+                      <p>Temps de trajet: <span id='tempsTrajet'></span></p>
+                      <p>Heure d'arrivée: <span id='heureArrivee'></span></p>
+                      <br>
+                      <a href="/savoirplus/${annonce._id}" class="card-button">En savoir plus</a>
+                    </div>
+                  `;
+                  annoncesContainer.innerHTML += annonceHtml;
+                  updateRouteInfo(annonce._id, annonce.villed, annonce.villea);
+                });
+              })
+              .catch((error) => {
+                console.error(
+                  "Erreur lors de la récupération des annonces:",
+                  error
+                );
+              });
+          }
+
+          function updateRouteInfo(id, origin, destination) {
+            const proxyUrl = "https://cors-anywhere.herokuapp.com/";
+            const apiKey = "AIzaSyBs4azg1w_qCfI6KBHHGju-C2ZgGktCNYM";
+            const apiUrl = `https://maps.googleapis.com/maps/api/directions/json?origin=${origin}&destination=${destination}&key=${apiKey}`;
+            const url = proxyUrl + apiUrl;
+
+            fetch(url)
+              .then((response) => {
+                if (!response.ok) {
+                  throw new Error(
+                    "Problème avec la réponse : " + response.statusText
+                  );
+                }
+                return response.json();
+              })
+              .then((data) => {
+                const annonceDiv = document.querySelector(
+                  `a[href="/savoirplus/${id}"]`
+                ).parentElement;
+                if (!data.routes || data.routes.length === 0) {
+                  annonceDiv.querySelector("#tempsTrajet").textContent = "0";
+                  annonceDiv.querySelector("#heureArrivee").textContent = "0";
+                  annonceDiv.querySelector("#km").textContent = "0";
+                  return;
+                }
+                const route = data.routes[0];
+                const leg = route.legs[0];
+                annonceDiv.querySelector("#tempsTrajet").textContent =
+                  leg.duration.text;
+                annonceDiv.querySelector("#km").textContent = leg.distance.text;
+                annonceDiv.querySelector("#heureArrivee").textContent =
+                  new Date(
+                    Date.now() + leg.duration.value * 1000
+                  ).toLocaleTimeString();
+              })
+              .catch((error) => {
+                console.error("Erreur", error);
+                const annonceDiv = document.querySelector(
+                  `a[href="/savoirplus/${id}"]`
+                ).parentElement;
+                annonceDiv.querySelector("#tempsTrajet").textContent = "Erreur";
+                annonceDiv.querySelector("#heureArrivee").textContent =
+                  "Erreur";
+                annonceDiv.querySelector("#km").textContent = "Erreur";
+              });
+          }
+
+          window.onload = loadAndDisplayAnnonces;
+        </script>
+      </div>
+    </section>
+    <footer>
+      <p>© 2024 CoDrive. Tous droits réservés.</p>
+      <p>
+        <a href="/" class="footer-link">Mentions légales</a>
+        <a href="/" class="footer-link">Politique de confidentialité</a>
+        <a href="/" class="footer-link">Contact</a>
+      </p>
+      <p>
+        <a
+          href="https://github.com/RomeoAg13"
+          target="_blank"
+          class="social-link"
+          >Roméo Github</a
+        >
+        <a
+          href="https://github.com/IsmaaDevs"
+          target="_blank"
+          class="social-link"
+          >Ismaël Github</a
+        >
+        <a
+          href="https://github.com/MathieuAudibert"
+          target="_blank"
+          class="social-link"
+          >Mathieu Github</a
+        >
+        <a
+          href="https://github.com/AndrijaFF"
+          target="_blank"
+          class="social-link"
+          >Andrija Github</a
+        >
+        <a href="https://github.com/Anoruu" target="_blank" class="social-link"
+          >Lucien Github</a
+        >
+      </p>
+    </footer>
+  </body>
+</html>
