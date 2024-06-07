@@ -1,66 +1,153 @@
-# NodeJS et API
+# 🚗 CoDrive 🚗
 
-ALLEZ SUR LA BRANCHE ***ISMA*** POUR AVOIR LA DERNIERE VERSION DU SITE 
+**CoDrive** est une application web de covoiturage qui permet aux utilisateurs de s'inscrire, de créer des annonces de covoiturage et de consulter les offres disponibles. Cette application est développée avec Node.js, Express et MongoDB.
 
-Ce site web est un projet noté lors de la matière "Node.js & APIs". Il sera presenté lors d'une soutenance.
+## Fonctionnalités
 
-# Presentation du sujet
-Dans des groupes de 5, nous devions developper un site web avec Nodejs et une api RESTful. Le site est un site de covoiturage innovant qui doit assurer une communication efficace entre le serveur et les clients. 
+- **Inscription d'un Utilisateur** : Permet aux nouveaux utilisateurs de s'inscrire avec leur nom, âge, email et mot de passe.
+- **Créer une Annonce** : Les utilisateurs peuvent créer des annonces de covoiturage en spécifiant les villes de départ et d'arrivée, la date de départ, le prix et les places disponibles.
+- **Voir les Annonces** : Les utilisateurs peuvent consulter toutes les annonces de covoiturage disponibles.
 
-Favorisant la flexibilité de l'application et l'extensibilité, notre application devra assurer une experience utilisateur optimale
+## Installation
 
-L'objectif de base de l'application est de promouvoir la mobilité durable et la réduction d'émissions de Co2 avec le partage de trajets. Cette initiative a pour but de promouvoir aussi la RSE (Responsabilité Sociale Ecologique). 
+1. **Cloner le Dépôt** :
 
-Les comportements éco-responsable des utilisateurs seront récompensés.
+   ```bash
+   git clone <url-du-dépôt>
+   cd project_node-s-api
+   ```
 
-# Fonctionnalités demandés
-![image1](./images/image.png)
-![image2](./images/image2.png)
-![image3](./images/image3.png)
-![image4](./images/image4.png)
-![image56](./images/image5.png)
+2. **Installer les Dépendances** :
 
-# Fonctionnalités effectives
-- Un chatbot qui permet d’assurer la communication entre nous et nos clients
-- Une API qui permet de calculer le temps de trajet 
-- Un système d’inscription/connexion afin de pouvoir rentrer ses informations pour les trajets et un - historique des trajets efféctués
-- Les annonces avec toutes les informations pour contacter le conducteur et un systeme de reservation
-- Récompenses pour les utilisateurs aguerris
-- Statistiques de suivi de l’application
+   ```bash
+   npm install
+   ```
 
+3. **Configurer les Variables d'Environnement** :
+   
+   Créez un fichier `.env` dans le répertoire racine et ajoutez les variables d'environnement nécessaires :
 
-# Outils 
-- Vscode → Nous sommes habitués, facilité d’utilisation…
-- Javascript, Nodejs → Obligatoire 
-- Google Plateform pour l’api → facilité, rapidité 
-- HTML CSS → habitué, obligatoire
-- MongoDB Compass, cluster host sur MongoDB Atlass → obligatoire, pas de schéma à développer
-- Git, Github → simple a utiliser, comme nous sommes 5 c’est plus simple de se partager le code, garder des versions… 
-- Trello → afin de garder un oeil sur notre avancement
+   ```plaintext
+   MONGODB_URI=<votre_chaîne_de_connexion_mongodb>
+   PORT=3001
+   ```
 
-# Forces
-Une de nos forces est notre API, nous avons trouvé une bonne API qui donne de bons détails sur les trajets, simple à utiliser pour nous comme pour nos utilisateurs. 
+4. **Démarrer l'Application** :
 
-Une autre force est notre design, facile d’utilisation, sobre et unique, notre site web est utilisable par toutes les générations et a pour but de garder un design reconnaissable dans la durée.
+   ```bash
+   npm run dev
+   ```
 
-La modélisation de notre back-end est simpliste donc si nous venions à collaborer avec d’autres développeurs, leur intégration serait plus rapide étant donné que tout est simplifié. 
+5. **Ouvrir dans le Navigateur** :
+   Ouvrez votre navigateur et accédez à `http://localhost:3001` pour voir l'application en action.
 
-# Faiblesses
-Faible rayonnement médiatique, nous n’avons pas créé d’entreprise ni fait de communication commerciale donc nous sommes peu exposés au grand public ce qui fait que nos débuts seront extrêmement difficiles. 
+## Utilisation
 
-Notre expérience risque de nous faire défaut étant donné que nous sommes jeunes et sous-expérimentés. 
+### Inscription d'un Utilisateur
 
-# Contact 
-<ul> 
+1. Envoyez une requête `POST` à `/api/users/register` avec les champs suivants :
+   - `nom`: Nom de l'utilisateur
+   - `prenom`: Prénom de l'utilisateur
+   - `age`: Âge de l'utilisateur
+   - `email`: Email de l'utilisateur
+   - `password`: Mot de passe de l'utilisateur
 
-romeo.agostino@efrei.net 
+2. Exemple de corps JSON pour la requête :
 
-ismael.genet@efre.net
+   ```json
+   {
+     "nom": "Doe",
+     "prenom": "John",
+     "age": 30,
+     "email": "john.doe@example.com",
+     "password": "securepassword123"
+   }
+   ```
 
-lucien.jeammet@efrei.net
+### Créer une Annonce
 
-andrija.tomic@efrei.net
+1. Envoyez une requête `POST` à `/api/annonces/register` avec les champs suivants :
+   - `villed`: Ville de départ
+   - `villea`: Ville d'arrivée
+   - `depart`: Date de départ (format: AAAA-MM-JJ)
+   - `prix`: Prix par place
+   - `place`: Nombre de places disponibles
 
-mathieu.audibert@efrei.net
+2. Exemple de corps JSON pour la requête :
 
-</ul>
+   ```json
+   {
+     "villed": "Paris",
+     "villea": "Lyon",
+     "depart": "2023-12-25",
+     "prix": 50,
+     "place": 3
+   }
+   ```
+
+### Voir les Annonces
+
+1. Envoyez une requête `GET` à `/api/annonces` pour récupérer toutes les annonces de covoiturage disponibles.
+
+## Structure du Projet
+
+```plaintext
+Node-API/
+│
+├── node_modules/
+│
+│
+├── frontend/
+│   ├── Annonce/
+│   └── index.html
+│   ├── ChatBot/
+│   └── index.html
+│   ├── EnSavoirPls/
+│   └── index.html
+│   ├── HomePage/
+│   └── index.html
+│   └── style.css
+│   ├── Login/
+│   └── index.html
+│   └── style.css
+│   ├── Recompenses/
+│   └── style.css
+│   ├── Register/
+│   └── index.html
+│   └── style.css
+│
+├── routes/
+│   ├── htmlroute/
+│   └── index.js
+│   └── req.js
+│   ├── annonceRoutes.js
+│   ├── userRoutes.js
+│
+├── models/
+│   └── annonce.js
+│   └── user.js
+│
+├── script/
+│   └── script.sh
+│
+│
+├── main.js
+├── bdd.js
+├── script.js
+├── .env
+├── package-lock.json
+├── package.json
+└── README.md
+```
+
+## Technologies Utilisées
+
+- **Node.js** : Runtime JavaScript.
+- **Express** : Framework web pour Node.js.
+- **MongoDB** : Base de données NoSQL.
+- **Mongoose** : Outil de modélisation d'objets MongoDB.
+- **Nodemon** : Utilitaire qui surveille les modifications du code et redémarre automatiquement le serveur.
+
+---
+
+Voilà **CoDrive** ! Si vous avez des questions ou des suggestions, n'hésitez pas à les partager. 🚗✨
